@@ -100,6 +100,19 @@ button {
   border-radius: 20px;
 }
 
+button:hover {
+  filter: brightness(120%);
+}
+
+.numbers {
+  display: flex;
+  gap: 4rem;
+}
+
+.number-result {
+  border-bottom: 4px solid var(--result-color);
+}
+
 /* Result */
 .result {
   display: flex;

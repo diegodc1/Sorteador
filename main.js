@@ -1,26 +1,41 @@
 const calculate = {
-  amountNubers: document.querySelector("input#amount-numbers"),
+  amountNumbers: document.querySelector("input#amount-numbers"),
   minNumber: document.querySelector("input#min-number"),
   maxNumber: document.querySelector("input#max-number"),
-  numberResult: document.getElementById("number-result"),
-  numbers: document.getElementById("numbers"),
+  numbers: document.querySelector("#numbers"),
 
   getValues() {
     return {
       minNumber: calculate.minNumber.value,
       maxNumber: calculate.maxNumber.value,
-      amountNumbers: calculate.amountNubers.value,
+      amountNumbers: calculate.amountNumbers.value,
     };
   },
 
+  clearResult() {
+    calculate.numbers.innerHTML = "";
+  },
+
   draw() {
-    let { minNumber, maxNumber } = calculate.getValues();
+    calculate.clearResult();
+    let { minNumber, maxNumber, amountNumbers } = calculate.getValues();
 
     minNumber = Number(minNumber);
     maxNumber = Number(maxNumber);
+    amountNumbers = Number(amountNumbers);
 
-    resultNumber = Math.random() * (maxNumber - minNumber) + minNumber;
+    for (let i = 1; i <= amountNumbers; i++) {
+      resultNumber = Math.random() * (maxNumber - minNumber) + minNumber;
 
-    calculate.numberResult.textContent = resultNumber.toFixed(0);
+      let numberResult = document.createElement("p");
+      numberResult.classList.add("number-result");
+
+      if (i == 2) {
+        numberResult.innerHTML = "";
+      }
+
+      calculate.numbers.appendChild(numberResult);
+      numberResult.innerHTML = resultNumber.toFixed(0);
+    }
   },
 };
