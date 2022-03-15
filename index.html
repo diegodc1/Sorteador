@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sorteador</title>
+
+    <!-- Style -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <section class="header">
+        <h1>Sorteador de números</h1>
+      </section>
+    </header>
+
+    <main>
+      <section class="content">
+        <div class="number-amount">
+          <p>
+            Sortear
+            <input id="amount-numbers" type="number" placeholder="0" /> número
+          </p>
+        </div>
+
+        <div class="interval">
+          <p>
+            Entre
+            <input id="min-number" type="number" placeholder="0" />
+            e
+            <input id="max-number" type="number" placeholder="0" />
+          </p>
+        </div>
+
+        <div class="button">
+          <button onclick="calculate.draw();">Sortear</button>
+        </div>
+      </section>
+
+      <section class="result">
+        <p>Os números sorteados foram:</p>
+        <div class="numbers">
+          <span id="number-result">10</span>
+        </div>
+      </section>
+
+      <script src="/main.js"></script>
+    </main>
+  </body>
+</html>
