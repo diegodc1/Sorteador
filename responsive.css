@@ -1,0 +1,38 @@
+@media (max-width: 425px) {
+  html {
+    font-size: 35%;
+  }
+
+  .background-img-right img,
+  .background-img-left img {
+    width: 25rem;
+  }
+
+  .text p {
+    font-size: 4rem;
+    font-weight: 700;
+  }
+
+  .content p {
+    font-size: 3rem;
+  }
+
+  .content input {
+    font-size: 1.8rem;
+  }
+
+  .numbers.grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (min-width: 2000px) {
+  html {
+    font-size: 100%;
+  }
+
+  .background-img-right img,
+  .background-img-left img {
+    width: 30rem;
+  }
+}

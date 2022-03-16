@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -8,28 +8,42 @@
 
     <!-- Style -->
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="responsive.css" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
-    <header>
-      <section class="header">
-        <h1>Sorteador de números</h1>
-      </section>
-    </header>
+    <div class="background-img-left">
+      <img src="/assets/boxesimg-2.svg" alt="" />
+    </div>
+
+    <div class="background-img-right">
+      <img src="/assets/boxesimg-1.svg" alt="" />
+    </div>
 
     <main>
+      <section class="header">
+        <div class="dado">
+          <img src="/assets/dado.svg" alt="" />
+        </div>
+        <div class="text">
+          <p>Sorteador de</p>
+          <p>Números</p>
+        </div>
+      </section>
+
       <section class="content">
         <div class="number-amount">
           <p>
             Sortear
-            <input id="amount-numbers" type="number" placeholder="0" /> número
+            <input id="amount-numbers" type="number" placeholder="0" />
+            número(s)
           </p>
         </div>
 
@@ -42,13 +56,16 @@
           </p>
         </div>
 
-        <div class="button">
+        <div class="buttons">
           <button onclick="calculate.draw();">Sortear</button>
+          <button onclick="calculate.clearInputs();" id="clear-input-button">
+            Limpar
+          </button>
         </div>
       </section>
 
-      <section class="result">
-        <p>Os números sorteados foram:</p>
+      <section class="result" id="result">
+        <div class="message-result" id="message-result"></div>
         <div class="numbers" id="numbers"></div>
       </section>
 
