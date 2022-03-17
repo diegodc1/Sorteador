@@ -46,7 +46,7 @@ main {
   gap: 2rem;
 }
 
-/* Background */
+/* Background  Images*/
 .background-img-right {
   z-index: -1;
   position: absolute;
@@ -61,7 +61,6 @@ main {
 }
 
 /* Header*/
-
 .header {
   display: flex;
   align-items: center;

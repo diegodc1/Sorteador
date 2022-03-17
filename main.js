@@ -1,4 +1,4 @@
-const calculate = {
+const App = {
   amountNumbers: document.querySelector("input#amount-numbers"),
   minNumber: document.querySelector("input#min-number"),
   maxNumber: document.querySelector("input#max-number"),
@@ -7,54 +7,71 @@ const calculate = {
 
   getValues() {
     return {
-      minNumber: calculate.minNumber.value,
-      maxNumber: calculate.maxNumber.value,
-      amountNumbers: calculate.amountNumbers.value,
+      minNumber: App.minNumber.value,
+      maxNumber: App.maxNumber.value,
+      amountNumbers: App.amountNumbers.value,
     };
   },
 
-  clearResult() {
-    calculate.numbers.innerHTML = "";
-    calculate.result.innerHTML = "";
-  },
-
-  clearInputs() {
-    calculate.minNumber.value = "";
-    calculate.maxNumber.value = "";
-    calculate.amountNumbers.value = "";
-    calculate.clearResult();
-  },
-
-  draw() {
-    calculate.clearResult();
-    let { minNumber, maxNumber, amountNumbers } = calculate.getValues();
-
-    //add message result
+  createResultMessageElement() {
     let messageResult = document.createElement("p");
-    messageResult.classList.add("message-result");
     const message = "Os números sorteados foram:";
-    calculate.result.appendChild(messageResult);
-    messageResult.innerHTML = message;
 
+    messageResult.classList.add("message-result");
+    App.result.appendChild(messageResult);
+    messageResult.innerHTML = message;
+  },
+
+  createNumbersElement() {
+    let numberResult = document.createElement("p");
+    numberResult.classList.add("number-result");
+
+    App.numbers.appendChild(numberResult);
+    numberResult.innerHTML = resultNumber.toFixed(0);
+  },
+
+  calculateResultNumbers() {
+    let { amountNumbers, maxNumber, minNumber } = App.getValues();
     minNumber = Number(minNumber);
     maxNumber = Number(maxNumber);
 
-    //add number result
     for (let i = 1; i <= amountNumbers; i++) {
       resultNumber = Math.random() * (maxNumber - minNumber) + minNumber;
-
-      let numberResult = document.createElement("p");
-      numberResult.classList.add("number-result");
-
-      calculate.numbers.appendChild(numberResult);
-      numberResult.innerHTML = resultNumber.toFixed(0);
+      App.createNumbersElement();
     }
+  },
 
-    //display grid
+  draw() {
+    Utils.clearResult();
+
+    App.createResultMessageElement();
+
+    App.calculateResultNumbers();
+
+    Utils.transforToGridDisplay();
+  },
+};
+
+const Utils = {
+  clearResult() {
+    App.numbers.innerHTML = "";
+    App.result.innerHTML = "";
+  },
+
+  clearInputs() {
+    App.minNumber.value = "";
+    App.maxNumber.value = "";
+    App.amountNumbers.value = "";
+    Utils.clearResult();
+  },
+
+  transforToGridDisplay() {
+    let { amountNumbers } = App.getValues();
+
     if (amountNumbers > 7) {
-      calculate.numbers.classList.add("grid");
+      App.numbers.classList.add("grid");
     } else {
-      calculate.numbers.classList.remove("grid");
+      App.numbers.classList.remove("grid");
     }
   },
 };
