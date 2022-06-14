@@ -53,6 +53,7 @@ main {
   right: 0;
   top: 0;
 }
+
 .background-img-left {
   z-index: -1;
   position: absolute;
@@ -170,7 +171,9 @@ button:hover {
 }
 
 .number-result {
-  border-bottom: 4px solid var(--purple);
+  border-left: 4px solid var(--purple);
+  border-radius: 1000px;
+  padding: 0rem 0rem 0rem 1.5rem;
   margin-top: 2rem;
   font-weight: 700;
   transition: all 0.5s;
